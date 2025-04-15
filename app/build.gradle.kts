@@ -8,7 +8,8 @@ plugins {
 
 android {
     namespace = "com.shnsh.mealsapp"
-    compileSdk = 34
+    compileSdk = 35
+
 
     defaultConfig {
         applicationId = "com.shnsh.mealsapp"
@@ -18,6 +19,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 
 
@@ -30,6 +34,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -53,7 +58,14 @@ dependencies {
     implementation (libs.gson)
     implementation(libs.hilt.android.v2511)
     kapt(libs.hilt.android.compiler.v2511)
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.lifecycle.runtime.ktx)
+    implementation (libs.glide)
+    kapt (libs.compiler)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation( project(":domain"))
+    implementation( project(":data"))
 }
